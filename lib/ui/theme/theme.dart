@@ -30,6 +30,11 @@ ThemeData themeApp() {
       iconTheme: iconTheme(),
       elevation: 0,
       color: Colors.transparent,
+      titleTextStyle: const TextStyle(
+        color: blueDarkPrimaryColor,
+        fontWeight: FontWeight.w700,
+        fontSize: 18,
+      )
     );
   }
 

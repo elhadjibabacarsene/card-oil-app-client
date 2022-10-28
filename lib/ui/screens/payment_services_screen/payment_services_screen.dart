@@ -12,10 +12,7 @@ class PaymentServicesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar: AppBar(
-        title: const CustomText(
-          text: 'Choisir mode de paiement', fontSize: 20, customTextFontWeight: CustomTextFontWeight.bold,
-          color: blueDarkPrimaryColor,
-        ),
+        title: const Text('Choisir mode de paiement')
       ),
       backgroundColor: greyQuaternaryColor,
       body: Padding(

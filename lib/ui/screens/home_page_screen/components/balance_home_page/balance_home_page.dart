@@ -27,7 +27,7 @@ class BalanceHomePage extends StatelessWidget {
                 ),
               ),
               CustomText(
-                text: '10 000 FCFA',
+                text: '10 000F',
                 fontSize: getW(context)*0.065,
                 customTextFontWeight: CustomTextFontWeight.extraBold,
                 color: mentheSecondaryColor,

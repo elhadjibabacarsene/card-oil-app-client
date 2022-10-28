@@ -15,13 +15,17 @@ class PaymentServicesBodyScreen extends StatelessWidget {
           PaymentServiceItem(
             title: 'Payer par QR code',
             icon: Icons.qr_code_outlined,
-            onPressed: () {},
+            onPressed: () {
+                Navigator.pushNamed(context, '/qr_code_screen');
+            },
             iconContainerColor: yellowDarkColor,
           ),
           PaymentServiceItem(
             title: 'Payer par NFC',
             icon: Icons.nfc_outlined,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, '/nfc_screen');
+            },
             iconContainerColor: mauvePrimaryColor,
           ),
         ],

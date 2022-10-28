@@ -16,9 +16,14 @@ class HomePageScreenAppBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          Image.asset(
-            'assets/icons/menu-home.png',
-            width: getW(context) * 0.08,
+          GestureDetector(
+            onTap: (){
+              Navigator.pushNamed(context, '/profile_screen');
+            },
+            child: Image.asset(
+              'assets/icons/menu-home.png',
+              width: getW(context) * 0.08,
+            ),
           ),
           CustomText(
             text: 'Card Oil',

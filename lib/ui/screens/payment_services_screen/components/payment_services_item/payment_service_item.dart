@@ -29,32 +29,35 @@ class PaymentServiceItem extends StatelessWidget {
           child: Icon(icon, color: Colors.white,),
         );
 
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 20),
-      child: Container(
-        padding: const EdgeInsets.all(14),
-        width: double.infinity,
-        height: 80,
-        decoration: BoxDecoration(
-          color: whiteColor,
-          borderRadius: BorderRadius.circular(25.0),
-          border: Border.all(width: 1, color: greyQuinaryColor)
-        ),
-        child: Row(
-          children: [
-            iconContainer(),
-            Padding(
-              padding: const EdgeInsets.only(
-                left: 10,
-              ),
-              child: CustomText(
-                text: title,
-                fontSize: 18,
-                customTextFontWeight: CustomTextFontWeight.bold,
-                color: blueDarkPrimaryColor,
-              ),
-            )
-          ],
+    return GestureDetector(
+      onTap: onPressed,
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 20),
+        child: Container(
+          padding: const EdgeInsets.all(14),
+          width: double.infinity,
+          height: 80,
+          decoration: BoxDecoration(
+            color: whiteColor,
+            borderRadius: BorderRadius.circular(25.0),
+            border: Border.all(width: 1, color: greyQuinaryColor)
+          ),
+          child: Row(
+            children: [
+              iconContainer(),
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: 10,
+                ),
+                child: CustomText(
+                  text: title,
+                  fontSize: 18,
+                  customTextFontWeight: CustomTextFontWeight.bold,
+                  color: blueDarkPrimaryColor,
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

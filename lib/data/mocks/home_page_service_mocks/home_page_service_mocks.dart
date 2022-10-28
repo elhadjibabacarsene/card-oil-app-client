@@ -11,18 +11,18 @@ List<HomeServiceItemModel> homePageServiceMocks = [
     title: 'Recharger \nson compte',
     description: 'Alimenter compte',
     image: 'assets/icons/received.png',
-    link: '',
+    link: '/qr_code_screen',
   ),
   HomeServiceItemModel(
     title: 'Mes points \nde fidélité',
     description: 'Consulter points',
-    image: 'assets/icons/received.png',
-    link: '',
+    image: 'assets/icons/fidelity.png',
+    link: '/loyalty_point_screen',
   ),
   HomeServiceItemModel(
     title: 'Mes transactions',
     description: 'Historique',
     image: 'assets/icons/history.png',
-    link: '',
+    link: '/transaction_history_screen',
   ),
 ];
