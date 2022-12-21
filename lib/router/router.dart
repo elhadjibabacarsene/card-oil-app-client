@@ -7,6 +7,7 @@ import 'package:card_oil/ui/screens/qr_code_screen/qr_code_screen.dart';
 import 'package:card_oil/ui/screens/transaction_history_screen/transaction_history_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../features/sign_up/presentation/pages/sign_up_page.dart';
 import '../ui/screens/payment_services_screen/payment_services_screen.dart';
 import '../ui/screens/success_screen/success_screen.dart';
 
@@ -16,7 +17,8 @@ class AppRouter {
       case '/login_screen':
         return MaterialPageRoute(builder: (_) => const LoginScreen());
       case '/':
-        return MaterialPageRoute(builder: (_) => const HomePageScreen());
+        return MaterialPageRoute(builder: (_) => const SignUpPage());
+        // return MaterialPageRoute(builder: (_) => const HomePageScreen());
       case '/payment_services_screen':
         return MaterialPageRoute(builder: (_) => const PaymentServicesScreen());
       case '/qr_code_screen':

@@ -3,7 +3,6 @@ import 'package:card_oil/constants/size/size.dart';
 import 'package:card_oil/ui/widgets/custom_text/custom_text.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../constants/devices/devices.dart';
 import '../../../../data/models/transaction_history_item_model/transaction_history_model.dart';
 
 class DetailsTransactionBodyScreen extends StatelessWidget {

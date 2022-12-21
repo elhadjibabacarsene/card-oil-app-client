@@ -1,10 +1,10 @@
 import 'package:card_oil/constants/size/size.dart';
 import 'package:card_oil/data/mocks/loyalty_box_mocks/loyalty_box_mocks.dart';
 import 'package:card_oil/helpers/size_config_helpers/size_config_helpers.dart';
-import 'package:card_oil/ui/widgets/custom_button/custom_button.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../constants/colors/app_colors.dart';
+import '../../../../core/widgets/custom_button/custom_button.dart';
 import '../../../widgets/custom_text/custom_text.dart';
 import 'loyalty_list/loyalty_list.dart';
 

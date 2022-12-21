@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1020937272589",
+    "project_id": "my-cardoil-project",
+    "storage_bucket": "my-cardoil-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1020937272589:android:3af7034cb5ba7f00ae0444",
+        "android_client_info": {
+          "package_name": "com.example.card_oil"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1020937272589-vu6a6fcnadvk4jgudv1l938jk9e40k4t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNQd-qNIrOQHVGHI9T4mQIRR3Eoi70AC8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1020937272589-vu6a6fcnadvk4jgudv1l938jk9e40k4t.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1020937272589-b3u4hmc9sp3qo21p752vfolfu8mp5150.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.cardOil"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
