@@ -31,6 +31,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  serverpod_flutter: ^0.9.21
+  card_oil_backend_client:
+    path: ../card_oil_backend/card_oil_backend_client
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -38,7 +41,7 @@ dependencies:
   cupertino_icons: ^1.0.2
 
   # state management
-  flutter_bloc: ^8.1.1
+  flutter_bloc: ^8.1.2
   # font
   google_fonts: ^3.0.1
   # object eguality
@@ -46,12 +49,21 @@ dependencies:
   # qr code
   qr_flutter: ^4.0.0
   # img animation
-  lottie: ^1.4.3
+  lottie: ^2.3.1
   # injection dependence
   get_it: ^7.2.0
   # Code purification
   dartz: ^0.10.1
-  firebase_core: ^2.4.0
+  # firebase utils
+  #loading message
+  flutter_easyloading: ^3.0.5
+  pinput: ^2.2.21
+  dio: ^5.1.0
+  shared_preferences: ^2.0.20
+  jwt_decoder: ^2.0.1
+  encrypt: ^5.0.1
+  intl: ^0.18.0
+
 
 dev_dependencies:
   flutter_test:
@@ -79,6 +91,7 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/lotties/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -105,3 +118,5 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+  # [166, 178, 208, 114, 107, 171, 117, 118, 250, 91, 73, 59, 216, 24, 82, 233, 92, 121, 247, 223, 195, 88, 90, 12, 118, 47, 107, 6, 6, 173, 78, 66]

@@ -3,11 +3,13 @@ import 'package:card_oil/ui/widgets/custom_text/custom_text.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({Key? key, required this.title, this.onPressed})
+  const CustomButton(
+      {Key? key, required this.title, this.onPressed, this.isActive = true})
       : super(key: key);
 
   final String title;
   final VoidCallback? onPressed;
+  final bool isActive;
 
   @override
   Widget build(BuildContext context) {
@@ -17,14 +19,16 @@ class CustomButton extends StatelessWidget {
       child: ElevatedButton(
         style: ButtonStyle(
           elevation: MaterialStateProperty.all(0),
-          backgroundColor: MaterialStateProperty.all(menthePrimaryColor),
+          backgroundColor: MaterialStateProperty.all(
+            isActive ? menthePrimaryColor : menthePrimaryColor.withOpacity(0.5),
+          ),
           shape: MaterialStateProperty.all(
             RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(24),
+              borderRadius: BorderRadius.circular(12),
             ),
           ),
         ),
-        onPressed: onPressed,
+        onPressed: isActive ? onPressed : null,
         child: CustomText(
           text: title,
           customTextFontWeight: CustomTextFontWeight.semiBold,

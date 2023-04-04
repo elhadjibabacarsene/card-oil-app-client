@@ -4,7 +4,9 @@ import '../../../constants/colors/app_colors.dart';
 import '../../../ui/widgets/custom_text/custom_text.dart';
 
 class HeaderSign extends StatelessWidget {
-  const HeaderSign({Key? key}) : super(key: key);
+  const HeaderSign({Key? key, required this.title}) : super(key: key);
+
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +26,10 @@ class HeaderSign extends StatelessWidget {
               color: blueDarkPrimaryColor,
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.only(top: 18.0),
+          Padding(
+            padding: const EdgeInsets.only(top: 18.0),
             child: CustomText(
-              text: 'Créer votre compte',
+              text: title,
               fontSize: 16,
               customTextFontWeight: CustomTextFontWeight.regular,
               color: blueDarkPrimaryColor,

@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "1020937272589",
+    "firebase_url": "https://my-cardoil-project-default-rtdb.firebaseio.com",
     "project_id": "my-cardoil-project",
     "storage_bucket": "my-cardoil-project.appspot.com"
   },
