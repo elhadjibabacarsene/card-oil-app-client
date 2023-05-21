@@ -1,11 +1,7 @@
 class LoginResponse {
-  LoginResponse({
-    this.code,
-    this.message,
-    this.token,
-  });
+  LoginResponse({this.accessToken, this.tokenType, this.expiresIn});
 
-  int? code;
-  String? message;
-  String? token;
+  final String? accessToken;
+  final String? tokenType;
+  final int? expiresIn;
 }

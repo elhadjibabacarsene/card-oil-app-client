@@ -1,6 +1,7 @@
-import '../models/transaction_history_model.dart';
+import 'package:card_oil/features/transaction_history/data/models/transaction_list_model.dart';
+
 
 abstract class TransactionHistoryDataSource {
-  Future<TransactionHistory> getTransactionHistory(
-      {required String idUser, required String walletType});
+  Future<TransactionListModel> getTransactionHistory(
+      {required String typeTransaction});
 }

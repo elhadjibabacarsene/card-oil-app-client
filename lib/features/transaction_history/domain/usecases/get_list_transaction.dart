@@ -1,32 +1,30 @@
+import 'package:card_oil/features/transaction_history/data/models/transaction_list_model.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 
 import '../../../../core/error/failure.dart';
 import '../../../../core/usecases/usecases.dart';
 import '../../../../single_app.dart';
-import '../../data/models/transaction_history_model.dart';
 import '../../data/repositories/transaction_history_repository_impl.dart';
 
 class GetListTransaction
-    implements UseCases<TransactionHistory, GetListTransactionParams> {
+    implements UseCases<TransactionListModel, GetListTransactionParams> {
   @override
-  Future<Either<Failure, TransactionHistory>> call(
+  Future<Either<Failure, TransactionListModel>> call(
       GetListTransactionParams getListTransactionParams) async {
     final TransactionHistoryRepositoryImpl transactionHistoryRepository =
         sl<TransactionHistoryRepositoryImpl>();
     return await transactionHistoryRepository.getTransactionHistory(
-      idUser: getListTransactionParams.idUser,
-      walletType: getListTransactionParams.walletType,
+      typeTransaction: getListTransactionParams.typeTransaction,
     );
   }
 }
 
 class GetListTransactionParams extends Equatable {
-  String idUser;
-  String walletType;
+  String typeTransaction;
 
-  GetListTransactionParams({required this.idUser, required this.walletType});
+  GetListTransactionParams({required this.typeTransaction});
 
   @override
-  List<Object?> get props => [idUser, walletType];
+  List<Object?> get props => [typeTransaction];
 }

@@ -1,5 +1,6 @@
 import 'package:card_oil/constants/colors/app_colors.dart';
 import 'package:card_oil/core/helpers/date_helper.dart';
+import 'package:card_oil/features/transaction_history/data/models/transaction_model.dart';
 import 'package:card_oil/features/transaction_history/domain/entities/Transaction.dart';
 import 'package:card_oil/ui/widgets/custom_text/custom_text.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +12,7 @@ class TransactionItemHistory extends StatelessWidget {
   const TransactionItemHistory({Key? key, required this.transaction})
       : super(key: key);
 
-  final Transaction transaction;
+  final TransactionModel transaction;
 
   @override
   Widget build(BuildContext context) {
@@ -48,14 +49,14 @@ class TransactionItemHistory extends StatelessWidget {
           children: [
             CustomText(
               text:
-                  '${transaction.typeTransaction?.libelle} chez ${transaction.station}',
+                  '${transaction.transactionType?.name} chez ${transaction.station?.name}',
               fontSize: 14,
               customTextFontWeight: CustomTextFontWeight.semiBold,
               color: blueDarkPrimaryColor,
             ),
             CustomText(
               text: sl<DateHelper>()
-                  .formatDateToDDMMYYYY(transaction.createdAt.toString()),
+                  .formatDateToDDMMYYYYHHMM(transaction.createdAt.toString()),
               fontSize: 12,
               customTextFontWeight: CustomTextFontWeight.regular,
               color: greyPrimaryColor,
@@ -77,7 +78,7 @@ class TransactionItemHistory extends StatelessWidget {
                   ) : Container(),
                   CustomText(
                     text:
-                        '${transaction.amount != null ? sl<AmountHelper>().formatAmount(transaction.amount!) : ''} FCFA',
+                        '${transaction.amount != null ? sl<AmountHelper>().formatAmount(int.parse(transaction.amount!.replaceAll('.', ''))) : ''} FCFA',
                     fontSize: 14,
                     customTextFontWeight: CustomTextFontWeight.bold,
                     color: blueDarkPrimaryColor,

@@ -43,7 +43,7 @@ dependencies:
   # state management
   flutter_bloc: ^8.1.2
   # font
-  google_fonts: ^3.0.1
+  google_fonts: ^4.0.4
   # object eguality
   equatable: ^2.0.5
   # qr code
@@ -63,6 +63,7 @@ dependencies:
   jwt_decoder: ^2.0.1
   encrypt: ^5.0.1
   intl: ^0.18.0
+  flutter_native_splash: ^2.2.19
 
 
 dev_dependencies:
@@ -93,6 +94,12 @@ flutter:
     - assets/icons/
     - assets/lotties/
 
+# Flutter Native Splash config
+flutter_native_splash:
+  color: "#ffffff"
+  image: "assets/images/logo-1.png"
+  android: true
+  ios: true
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

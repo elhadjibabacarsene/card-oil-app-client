@@ -14,6 +14,7 @@ class Registration {
     this.password,
     this.firstname,
     this.lastname,
+    this.dialingCode,
     this.country,
   });
 
@@ -21,6 +22,7 @@ class Registration {
   final String? password;
   final String? firstname;
   final String? lastname;
+  final String? dialingCode;
   final Country? country;
 
   Registration copyWith({
@@ -28,6 +30,7 @@ class Registration {
     String? password,
     String? firstname,
     String? lastname,
+    String? dialingCode,
     Country? country,
   }) =>
       Registration(
@@ -35,6 +38,7 @@ class Registration {
         password: password ?? this.password,
         firstname: firstname ?? this.firstname,
         lastname: lastname ?? this.lastname,
+        dialingCode: dialingCode ?? this.dialingCode,
         country: country ?? this.country,
       );
 
@@ -43,14 +47,16 @@ class Registration {
     password: json["password"],
     firstname: json["firstname"],
     lastname: json["lastname"],
+    dialingCode: json["dialing_code"],
     country: json["country"] == null ? null : Country.fromJson(json["country"]),
   );
 
   Map<String, dynamic> toJson() => {
-    "phonenumber": phonenumber,
+    "phone_number": phonenumber,
     "password": password,
     "firstname": firstname,
     "lastname": lastname,
+    "dialing_code": dialingCode,
     "country": country?.toJson(),
   };
 }

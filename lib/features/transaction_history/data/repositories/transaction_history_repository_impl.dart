@@ -5,6 +5,7 @@ import 'package:dartz/dartz.dart';
 
 import '../../../../core/error/exceptions.dart';
 import '../../domain/repositories/transaction_history_repository.dart';
+import '../models/transaction_list_model.dart';
 
 class TransactionHistoryRepositoryImpl implements TransactionHistoryRepository {
   final TransactionHistoryDataSourceImpl transactionHistoryDataSourceImpl;
@@ -12,13 +13,12 @@ class TransactionHistoryRepositoryImpl implements TransactionHistoryRepository {
   TransactionHistoryRepositoryImpl({required this.transactionHistoryDataSourceImpl});
 
   @override
-  Future<Either<Failure, TransactionHistory>> getTransactionHistory(
-      {required String idUser, required String walletType}) async {
+  Future<Either<Failure, TransactionListModel>> getTransactionHistory(
+      {required String typeTransaction}) async {
     try {
-      final TransactionHistory transactionHistory =
-          await transactionHistoryDataSourceImpl.getTransactionHistory(
-              idUser: idUser, walletType: walletType);
-      return Right(transactionHistory);
+      final TransactionListModel transactionListModel =
+          await transactionHistoryDataSourceImpl.getTransactionHistory(typeTransaction: typeTransaction);
+      return Right(transactionListModel);
     } on ServerException catch (e) {
       return const Left(ServerFailure(errorMessage: 'Une erreur est survenue !'));
     }

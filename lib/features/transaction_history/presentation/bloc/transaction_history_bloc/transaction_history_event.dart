@@ -5,11 +5,10 @@ abstract class TransactionHistoryEvent extends Equatable {
 }
 
 class GetTransactionHistory extends TransactionHistoryEvent {
-  final String idUser;
-  final String walletType;
+  final String typeTransaction;
 
-  const GetTransactionHistory({required this.idUser, required this.walletType});
+  const GetTransactionHistory({required this.typeTransaction});
 
   @override
-  List<Object> get props => [idUser, walletType];
+  List<Object> get props => [typeTransaction];
 }

@@ -12,11 +12,10 @@ class BalanceRepositoryImpl implements BalanceRepository {
   BalanceRepositoryImpl({required this.balanceDataSourceImpl});
 
   @override
-  Future<Either<Failure, BalanceModel>> getBalance(
-      {required String idUser}) async {
+  Future<Either<Failure, BalanceModel>> getBalance() async {
     try {
       final BalanceModel balanceModel =
-          await balanceDataSourceImpl.getBalance(idUser: idUser);
+          await balanceDataSourceImpl.getBalance();
       return Right(balanceModel);
     } on ServerException catch (e) {
       return Left(ServerFailure(errorMessage: e.message));

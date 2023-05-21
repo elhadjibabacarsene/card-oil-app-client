@@ -5,10 +5,7 @@ abstract class GetBalanceEvent extends Equatable {
 }
 
 class ToGetBalance extends GetBalanceEvent {
-  final String idUser;
-
-  const ToGetBalance({required this.idUser});
 
   @override
-  List<Object> get props => [idUser];
+  List<Object> get props => [];
 }

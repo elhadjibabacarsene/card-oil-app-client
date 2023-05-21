@@ -14,16 +14,13 @@ class HomePageScreenAppBar extends StatelessWidget {
       padding: getPaddingHScreen(context),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           GestureDetector(
             onTap: (){
               Navigator.pushNamed(context, '/profile_screen');
             },
-            child: Image.asset(
-              'assets/icons/menu-home.png',
-              width: getW(context) * 0.08,
-            ),
+            child: const Icon(Icons.settings, color: menthePrimaryColor,),
           ),
           CustomText(
             text: 'Card Oil',
@@ -31,7 +28,8 @@ class HomePageScreenAppBar extends StatelessWidget {
             customTextFontWeight: CustomTextFontWeight.bold,
             color: blueDarkPrimaryColor,
           ),
-          GestureDetector(
+          Container(),
+          /*GestureDetector(
             onTap: (){
               Navigator.pushNamed(context, '/qr_code_screen');
             },
@@ -40,7 +38,7 @@ class HomePageScreenAppBar extends StatelessWidget {
               color: greyPrimaryColor,
               size: 25,
             ),
-          ),
+          ),*/
         ],
       ),
     );

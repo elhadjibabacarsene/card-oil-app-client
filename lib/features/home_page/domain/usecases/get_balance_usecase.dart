@@ -7,18 +7,9 @@ import 'package:equatable/equatable.dart';
 import '../../../../core/error/failure.dart';
 import '../../../../single_app.dart';
 
-class GetBalance implements UseCases<BalanceModel, GetBalanceParams> {
+class GetBalance implements UseCases<BalanceModel, NoParams> {
   @override
-  Future<Either<Failure, BalanceModel>> call(GetBalanceParams getBalanceParams) async {
-    return await sl<BalanceRepositoryImpl>().getBalance(idUser: getBalanceParams.idUser);
+  Future<Either<Failure, BalanceModel>> call(NoParams noParams) async {
+    return await sl<BalanceRepositoryImpl>().getBalance();
   }
-}
-
-class GetBalanceParams extends Equatable {
-  String idUser;
-
-  GetBalanceParams({required this.idUser});
-
-  @override
-  List<Object?> get props => [idUser];
 }

@@ -11,9 +11,9 @@ class TransactionHistoryBodyScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: getPaddingHScreen(context),
-      child: SingleChildScrollView(
+      child: const SingleChildScrollView(
         child: Column(
-          children: const [
+          children: [
             TransactionHistoryFilter(),
             Padding(
               padding: EdgeInsets.only(top: 30.0),

@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:card_oil/core/usecases/usecases.dart';
 import 'package:card_oil/features/home_page/data/models/balance_model/balance_model.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
@@ -17,7 +18,7 @@ class GetBalanceBloc extends Bloc<GetBalanceEvent, GetBalanceState> {
     on<ToGetBalance>((event, emit) async {
       emit(GetBalanceLoading());
       final Either<Failure, BalanceModel> failureOrBalance =
-          await getBalance(GetBalanceParams(idUser: event.idUser));
+          await getBalance(NoParams());
       emit(failureOrBalance.fold(
           (failure) => GetBalanceFailure(message: failure.errorMessage),
           (balanceModel) => balanceModel.balance != null

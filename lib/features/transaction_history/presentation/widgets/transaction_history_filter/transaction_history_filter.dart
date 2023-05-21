@@ -21,10 +21,7 @@ class TransactionHistoryFilter extends StatelessWidget {
             context: context,
             builder: (_) {
               return BlocProvider.value(value: BlocProvider.of<TransactionHistoryBloc>(context), child: const TransactionFilterCategoryModal());
-            },
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(25.0)
-            )
+            }
           );
         },
         child: Row(

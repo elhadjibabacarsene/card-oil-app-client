@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:card_oil/core/error/failure.dart';
 import 'package:card_oil/features/sign_in/data/models/login_response_model.dart';
@@ -22,16 +20,10 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
               phonenumber: event.phoneNumber, password: event.password));
 
       emit(
-        failureOrLoginResponseModel
-            .fold((failure) => SignInFailure(message: failure.errorMessage),
-                (loginResponseModel) {
-          if (loginResponseModel.code == 401) {
-            return const SignInFailure(
-                message: 'Login ou mot de passe incorrect');
-          } else {
-            return SignInSuccess();
-          }
-        }),
+        failureOrLoginResponseModel.fold(
+          (failure) => SignInFailure(message: failure.errorMessage),
+          (loginResponseModel) => SignInSuccess(),
+        ),
       );
     });
   }

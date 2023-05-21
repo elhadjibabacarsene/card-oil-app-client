@@ -19,7 +19,8 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
     });
     on<GetStep2Data>((event, emit) async {
       emit(SignUpLoading());
-      final Registration registration = event.registration.copyWith(country: Country(libelle: "Sénégal"));
+      final Registration registration =
+          event.registration.copyWith(dialingCode: '+221');
       final Either<Failure, bool> failureOrLoginResponseModel =
           await signUp(SignUpParams(registration: registration));
       emit(failureOrLoginResponseModel.fold(

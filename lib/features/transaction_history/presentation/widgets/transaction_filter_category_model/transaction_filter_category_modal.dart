@@ -1,5 +1,6 @@
 import 'package:card_oil/constants/colors/app_colors.dart';
 import 'package:card_oil/core/bloc/user_details_bloc/user_details_bloc.dart';
+import 'package:card_oil/core/features/get_details_user/presentation/bloc/get_details_user_bloc.dart';
 import 'package:card_oil/ui/widgets/custom_text/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,18 +14,17 @@ class TransactionFilterCategoryModal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    getTransaction(UserDetailsIsLoaded state, String walletType) {
+    getTransaction(GetDetailsUserLoaded state, String typeTransaction) {
       BlocProvider.of<TransactionHistoryBloc>(context).add(
         GetTransactionHistory(
-          idUser: state.userDetails.idUser.toString(),
-          walletType: walletType,
+          typeTransaction: typeTransaction,
         ),
       );
     }
 
-    return BlocBuilder<UserDetailsBloc, UserDetailsState>(
+    return BlocBuilder<GetDetailsUserBloc, GetDetailsUserState>(
         builder: (context, state) {
-      return state is UserDetailsIsLoaded
+      return state is GetDetailsUserLoaded
           ? SizedBox(
               height: 250,
               child: Column(
@@ -47,7 +47,7 @@ class TransactionFilterCategoryModal extends StatelessWidget {
                           title: 'Mes Achats',
                           status: true,
                           onTap: () {
-                            getTransaction(state, 'sender');
+                            getTransaction(state, 'achat');
                             Navigator.pop(context);
                           },
                         ),
@@ -55,7 +55,7 @@ class TransactionFilterCategoryModal extends StatelessWidget {
                           title: 'Mes recharges',
                           status: false,
                           onTap: () {
-                            getTransaction(state, 'receiver');
+                            getTransaction(state, 'recharge');
                             Navigator.pop(context);
                           },
                         ),

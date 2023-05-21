@@ -1,4 +1,5 @@
 import 'package:card_oil/core/bloc/user_details_bloc/user_details_bloc.dart';
+import 'package:card_oil/core/features/get_details_user/presentation/bloc/get_details_user_bloc.dart';
 import 'package:card_oil/features/transaction_history/presentation/bloc/transaction_history_bloc/transaction_history_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,13 +12,12 @@ class TransactionHistoryScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UserDetailsBloc, UserDetailsState>(
+    return BlocBuilder<GetDetailsUserBloc, GetDetailsUserState>(
       builder: (context, state) {
-        if(state is UserDetailsIsLoaded){
+        if(state is GetDetailsUserLoaded){
           BlocProvider.of<TransactionHistoryBloc>(context).add(
-            GetTransactionHistory(
-              idUser: state.userDetails.idUser.toString(),
-              walletType: 'sender',
+            const GetTransactionHistory(
+              typeTransaction: 'achat',
             ),
           );
         }

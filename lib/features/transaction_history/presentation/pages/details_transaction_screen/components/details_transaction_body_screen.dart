@@ -7,15 +7,31 @@ import 'package:flutter/material.dart';
 import '../../../../../../core/helpers/amount_helper.dart';
 import '../../../../../../core/helpers/date_helper.dart';
 import '../../../../../../single_app.dart';
+import '../../../../data/models/transaction_model.dart';
 
 class DetailsTransactionBodyScreen extends StatelessWidget {
   const DetailsTransactionBodyScreen({Key? key, required this.transaction})
       : super(key: key);
 
-  final Transaction transaction;
+  final TransactionModel transaction;
 
   @override
   Widget build(BuildContext context) {
+
+    getStatusColor() {
+      switch (transaction.status) {
+        case 'success':
+          return greenPrimaryColor;
+        case 'failed':
+          return redPrimaryColor;
+        case 'TP':
+          return yellowDarkColor;
+        case 'TC':
+          return redPrimaryColor;
+      }
+    }
+
+
     getStatusTransaction() {
       switch (transaction.status) {
         case 'success':
@@ -72,7 +88,7 @@ class DetailsTransactionBodyScreen extends StatelessWidget {
               children: [
                 CustomText(
                   text:
-                      '${transaction.amount != null ? sl<AmountHelper>().formatAmount(transaction.amount!) : ''} FCFA',
+                      '${transaction.amount != null ? sl<AmountHelper>().formatAmount(int.parse(transaction.amount!.replaceAll('.', ''))) : ''} FCFA',
                   fontSize: 30,
                   customTextFontWeight: CustomTextFontWeight.extraBold,
                   color: menthePrimaryColor,
@@ -81,7 +97,7 @@ class DetailsTransactionBodyScreen extends StatelessWidget {
               ],
             ),
             CustomText(
-              text: transaction.typeTransaction?.libelle ?? '',
+              text: transaction.transactionType?.name ?? '',
               fontSize: 20,
               customTextFontWeight: CustomTextFontWeight.regular,
               color: greyTertiaryColor,
@@ -92,7 +108,7 @@ class DetailsTransactionBodyScreen extends StatelessWidget {
               child: Column(
                 children: [
                   transactionItem(
-                      title: 'Station', description: '${transaction.station}'),
+                      title: 'Station', description: '${transaction.station?.name}'),
                   transaction.product != null
                       ? transactionItem(
                           title: 'Produit',
@@ -106,7 +122,7 @@ class DetailsTransactionBodyScreen extends StatelessWidget {
                   transactionItem(
                     title: 'Date',
                     description: sl<DateHelper>()
-                        .formatDateForHumanReadable(transaction.createdAt.toString()),
+                        .formatDateToDDMMYYYYHHMM(transaction.createdAt.toString()),
                   ),
                   Column(
                     children: [
@@ -124,7 +140,7 @@ class DetailsTransactionBodyScreen extends StatelessWidget {
                             text: getStatusTransaction() ?? '',
                             fontSize: 18,
                             customTextFontWeight: CustomTextFontWeight.regular,
-                            color: greenPrimaryColor,
+                            color: getStatusColor(),
                           ),
                         ],
                       ),
@@ -133,7 +149,7 @@ class DetailsTransactionBodyScreen extends StatelessWidget {
                   ),
                   transactionItem(
                       title: 'Code Transaction',
-                      description: '${transaction.idTransaction}'),
+                      description: '${transaction.transactionReference}'),
                 ],
               ),
             )

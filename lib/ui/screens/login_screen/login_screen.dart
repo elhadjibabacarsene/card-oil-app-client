@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/bloc/user_details_bloc/user_details_bloc.dart';
+import '../../../core/features/get_details_user/presentation/bloc/get_details_user_bloc.dart';
 import '../../../core/helpers/loading_message.dart';
 import '../../../features/sign_in/presentation/bloc/sign_in_bloc/sign_in_bloc.dart';
 import '../../../single_app.dart';
@@ -23,7 +24,7 @@ class LoginScreen extends StatelessWidget {
             LoadingMessage.dismiss();
           }
           if (state is SignInSuccess) {
-            BlocProvider.of<UserDetailsBloc>(context).add(GetUserDetails());
+            BlocProvider.of<GetDetailsUserBloc>(context).add(ToGetDetailsUser());
             Navigator.of(context)
                 .pushNamedAndRemoveUntil('/', (route) => false);
             // LoadingMessage.info('success');

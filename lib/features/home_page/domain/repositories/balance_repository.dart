@@ -4,5 +4,5 @@ import 'package:dartz/dartz.dart';
 import '../../../../core/error/failure.dart';
 
 abstract class BalanceRepository {
-  Future<Either<Failure, BalanceModel>> getBalance({required String idUser});
+  Future<Either<Failure, BalanceModel>> getBalance();
 }

@@ -1,6 +1,8 @@
 import 'package:card_oil/core/features/splashscreen/presentation/pages/splashscreen.dart';
 import 'package:card_oil/features/check_account/presentation/pages/check_account_page.dart';
 import 'package:card_oil/features/home_page/presentation/bloc/get_balance_bloc/get_balance_bloc.dart';
+import 'package:card_oil/features/my_card/presentation/pages/my_card.dart';
+import 'package:card_oil/features/profile/presentation/bloc/logout_bloc.dart';
 import 'package:card_oil/features/sign_in/presentation/bloc/sign_in_bloc/sign_in_bloc.dart';
 import 'package:card_oil/features/sign_up/presentation/bloc/sign_up_bloc/sign_up_bloc.dart';
 import 'package:card_oil/features/sign_up/presentation/pages/sign_up_page_step1.dart';
@@ -17,7 +19,6 @@ import '../features/check_account/presentation/pages/check_account_otp_page.dart
 import '../features/home_page/presentation/pages/home_page_screen.dart';
 import '../features/qr_code_payment/presentation/pages/qr_code_screen.dart';
 import '../features/transaction_history/presentation/pages/transaction_history_screen.dart';
-import '../single_app.dart';
 import '../ui/screens/payment_services_screen/payment_services_screen.dart';
 import '../ui/screens/success_screen/success_screen.dart';
 
@@ -28,7 +29,12 @@ class AppRouter {
   Route? onGenerateRoute(RouteSettings routeSettings) {
     switch (routeSettings.name) {
       case '/':
-        return MaterialPageRoute(builder: (_) => MultiBlocProvider(providers: [BlocProvider.value(value: getBalanceBloc,)], child: const Splashscreen()));
+        return MaterialPageRoute(
+            builder: (_) => MultiBlocProvider(providers: [
+                  BlocProvider.value(
+                    value: getBalanceBloc,
+                  )
+                ], child: const Splashscreen()));
       case '/login_page':
         return MaterialPageRoute(
           builder: (_) => MultiBlocProvider(
@@ -40,7 +46,8 @@ class AppRouter {
         );
       case '/home_page':
         return MaterialPageRoute(
-          builder: (_) => BlocProvider.value(value: getBalanceBloc, child: const HomePageScreen()),
+          builder: (_) => BlocProvider.value(
+              value: getBalanceBloc, child: const HomePageScreen()),
         );
       case '/check_account_page':
         return MaterialPageRoute(builder: (_) => const CheckAccountPage());
@@ -64,8 +71,12 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const LoyaltyPointScreen());
       case '/success_screen':
         return MaterialPageRoute(builder: (_) => const SuccessScreen());
+      case '/my_card':
+        return MaterialPageRoute(builder: (_) => const MyCard());
       case '/profile_screen':
-        return MaterialPageRoute(builder: (_) => const ProfileScreen());
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider(
+                create: (_) => LogoutBloc(), child: const ProfileScreen()));
       case '/sign_up_page_step_1':
         return MaterialPageRoute(
             builder: (_) => BlocProvider.value(

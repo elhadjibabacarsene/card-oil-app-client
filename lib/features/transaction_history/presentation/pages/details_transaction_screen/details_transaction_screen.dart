@@ -1,14 +1,13 @@
-import 'package:card_oil/data/models/transaction_model/transaction_model.dart';
+import 'package:card_oil/features/transaction_history/data/models/transaction_model.dart';
 import 'package:flutter/material.dart';
 
-import '../../../domain/entities/Transaction.dart';
 import 'components/details_transaction_body_screen.dart';
 
 class DetailsTransaction extends StatelessWidget {
   const DetailsTransaction({Key? key, required this.transaction})
       : super(key: key);
 
-  final Transaction transaction;
+  final TransactionModel transaction;
 
   @override
   Widget build(BuildContext context) {

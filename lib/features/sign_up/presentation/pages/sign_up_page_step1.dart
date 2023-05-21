@@ -99,8 +99,9 @@ class _SignUpPageStep1State extends State<SignUpPageStep1> {
   @override
   Widget build(BuildContext context) {
     switchToNextStep() {
+      // TODO :: To Implement dailing code country package
       final Registration registration = Registration(
-        phonenumber: _phoneNumberController.text,
+        phonenumber: '+221${_phoneNumberController.text.replaceAll(' ', '')}',
         firstname: _firstNameController.text,
         lastname: _lastNameController.text,
       );
@@ -109,7 +110,10 @@ class _SignUpPageStep1State extends State<SignUpPageStep1> {
     }
 
     return Scaffold(
-      appBar: AppBar(),
+      resizeToAvoidBottomInset: false,
+      appBar: AppBar(
+        systemOverlayStyle: SystemUiOverlayStyle.dark,
+      ),
       body: BlocListener<SignUpBloc, SignUpState>(
         listener: (context, state) {
           if (state is Step1DataGetIt) {

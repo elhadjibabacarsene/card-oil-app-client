@@ -3,7 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class HttpHelper {
   final Dio api = Dio();
-  final String BASE_URL = 'http://185.98.136.211/api';
+  final String BASE_URL = 'http://185.98.136.211:8080/api';
 
   HttpHelper() {
     api.interceptors
@@ -15,7 +15,7 @@ class HttpHelper {
       if (!options.path.contains("http")) {
         options.path = BASE_URL + options.path;
       }
-      if (!isContainsPath("/login") && !isContainsPath("/user/login-sign-Up")) {
+      if (!isContainsPath("/login") && !isContainsPath("/clients")) {
         SharedPreferences sharedPreferences =
             await SharedPreferences.getInstance();
         var accessToken = sharedPreferences.get('token');

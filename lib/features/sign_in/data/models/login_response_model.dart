@@ -10,21 +10,25 @@ String loginResponseToJson(LoginResponseModel data) =>
 
 class LoginResponseModel extends LoginResponse {
   LoginResponseModel({
-    code,
-    message,
-    token,
-  }) : super(code: code, message: message, token: token);
+    accessToken,
+    tokenType,
+    expiresIn,
+  }) : super(
+          accessToken: accessToken,
+          tokenType: tokenType,
+          expiresIn: expiresIn,
+        );
 
   factory LoginResponseModel.fromJson(Map<String, dynamic> json) =>
       LoginResponseModel(
-        code: json["code"],
-        message: json["message"],
-        token: json["token"],
+        accessToken: json["access_token"],
+        tokenType: json["token_type"],
+        expiresIn: json["expires_in"],
       );
 
   Map<String, dynamic> toJson() => {
-        "code": code,
-        "message": message,
-        "token": token,
+        "access_token": accessToken,
+        "token_type": tokenType,
+        "expires_in": expiresIn,
       };
 }

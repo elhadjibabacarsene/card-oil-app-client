@@ -2,6 +2,13 @@ import 'package:intl/intl.dart';
 
 class DateHelper {
 
+
+  String formatDateToDDMMYYYYHHMM(String date) {
+    final dateTime = DateTime.parse(date);
+    final format = DateFormat('dd/MM/yyyy à HH:mm');
+    return format.format(dateTime);
+  }
+
   String formatDateToDDMMYYYY(String inputDate) {
     // Définir le format de la date d'entrée
     DateFormat inputFormat = DateFormat("yyyy-MM-dd'T'HH:mm:ssZ");

@@ -15,10 +15,10 @@ class TransactionHistoryLoading extends TransactionHistoryState {
 }
 
 class TransactionHistoryLoaded extends TransactionHistoryState {
-  final List<Transaction> transactions;
-  final String walletType;
+  final List<TransactionModel> transactions;
+  final String typeTransaction;
 
-  const TransactionHistoryLoaded({required this.transactions, required this.walletType});
+  const TransactionHistoryLoaded({required this.transactions, required this.typeTransaction});
 
   @override
   List<Object> get props => [transactions];

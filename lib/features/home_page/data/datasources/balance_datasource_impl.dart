@@ -9,9 +9,9 @@ import 'balance_datasource.dart';
 class BalanceDataSourceImpl extends HttpHelper implements BalanceDataSource {
 
   @override
-  Future<BalanceModel> getBalance({required idUser}) async {
+  Future<BalanceModel> getBalance() async {
     try{
-      var res = await api.get('$BASE_URL/users/$idUser/wallet/balance');
+      var res = await api.get('$BASE_URL/user/balance');
       return balanceFromJson(res.data);
     } on DioError catch (e) {
       throw ServerException(message: 'Server Error'); 
